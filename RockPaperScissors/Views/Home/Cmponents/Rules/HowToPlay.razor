@@ -1,0 +1,21 @@
+﻿@using Games.RockPaperScissors.Models
+<div class="container">
+    <h1 class="display-4">How to play</h1>
+    <p class="lead">Select a game mode between the available options</p>
+    @if (GameMode == GameType.Standard)
+    {
+        <p class="lead">Select your answer amongst the 3 available options....</p>
+    }
+    else
+    {
+        <p class="lead">Select your answer amongst the many available options....</p>
+    }
+    <p class="lead">Check the results, Replay or Change game.</p>
+</div>
+
+@code {
+
+    [CascadingParameter]
+    public GameType GameMode { get; set; }
+
+}

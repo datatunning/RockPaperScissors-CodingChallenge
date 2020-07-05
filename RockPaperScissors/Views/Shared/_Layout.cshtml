@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewData["Title"] - Rock Paper Scissors</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <base href="~/" />
+</head>
+
+<body class="text-center">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <a class="nav-link active" asp-controller="Home" asp-action="Index"><h3 class="masthead-brand">Vintage Game Studio</h3></a>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                <a class="nav-link active" asp-controller="Home" asp-action="Games">Games</a>
+                <a class="nav-link" asp-controller="Home" asp-action="Rules">Rules</a>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main" class="container">
+        @RenderBody()
+    </main>
+
+    <footer class="mastfoot mt-auto">
+
+        <partial name="_CookieConsentPartial" />
+        <div class="inner">
+            <p>&copy; 2020, by <a href="https://uk.linkedin.com/in/brunoduval">Bruno DUVAL</a>.</p>
+        </div>
+    </footer>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+@await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

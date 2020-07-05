@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Http.Features
+
+@{
+    var showRevoke = false;
+    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+    if (consentFeature?.IsConsentNeeded ?? false)
+    {
+        showRevoke = consentFeature.CanTrack;
+    }
+    var cookieString = consentFeature?.CreateConsentCookie();
+}
+
+@if (showRevoke)
+{
+    <div id="cookieConsentRevoke">
+        <input class="btn btn-sm btn-link" type="button" value="Revoke Cookie Consent" onclick="location.href='@Url.Action("RevokeCookieConsent", "Home")'" />
+    </div>
+}
+else
+{
+    <div id="cookieConsent" class="alert alert-warning alert-dismissible fade show" role="alert">
+        Use this space to summarize your privacy and cookie use policy. <a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-does-general-data-protection-regulation-gdpr-govern_en" target="_blank">Learn More</a>.
+        <button type="button" class="accept-policy close btn btn-success" data-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
+            <span aria-hidden="true">Accept</span>
+        </button>
+    </div>
+    <script>
+        (function () {
+            var button = document.querySelector("#cookieConsent button[data-cookie-string]");
+            button.addEventListener("click", function (event) {
+                document.cookie = button.dataset.cookieString;
+            }, false);
+        })();
+    </script>
+}

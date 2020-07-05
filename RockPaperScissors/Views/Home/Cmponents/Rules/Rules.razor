@@ -1,0 +1,43 @@
+﻿@using Games.RockPaperScissors.Models
+<CascadingValue Value="GameMode">
+    @if (GameMode == GameType.Standard)
+    {
+        <h3>Standard Rules</h3>
+        <div class="jumbotron jumbotron-fluid bg-dark text-center">
+            <HowToPlay/>
+            <div class="container">
+                <h1 class="display-4">Rules</h1>
+                <p class="lead">Scissors beats paper (because scissors cut paper)</p>
+                <p class="lead">Paper beats rock (because you can wrap a rock with paper)</p>
+                <p class="lead">Rock beats scissors (because it blunts them)</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <h3>Sheldon's Rules</h3>
+        <div class="jumbotron jumbotron-fluid bg-dark text-center">
+            <HowToPlay/>
+            <div class="container">
+                <h1 class="display-4">Rules</h1>
+                <p class="lead">Rock beats scissors (because it blunts them)</p>
+                <p class="lead">Scissors beats paper (because scissors cut paper)</p>
+                <p class="lead">Paper beats rock (because you can wrap a rock with paper)</p>
+                <p class="lead">Rock beats lizard (you can crush a lizard with a rock)</p>
+                <p class="lead">Lizard beats Spock (because it poisons him)</p>
+                <p class="lead">Spock beats scissors (because he smashes them)</p>
+                <p class="lead">Scissors beats lizard (because it can cut it's head off)</p>
+                <p class="lead">Lizard beats paper (because the lizard eats the paper)</p>
+                <p class="lead">Paper beats Spock (because it disproves him)</p>
+                <p class="lead">Spock beats rock (because he vaporizes it)</p>
+            </div>
+        </div>
+    }
+</CascadingValue>
+
+@code {
+
+    [Parameter]
+    public GameType GameMode { get; set; }
+
+}

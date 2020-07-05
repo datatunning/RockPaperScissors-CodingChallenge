@@ -1,0 +1,13 @@
+﻿@using Games.RockPaperScissors.Models
+<p>
+    <span class="badge badge-success">Wins: @ScoreInfo.Wins</span>
+    <span class="badge badge-danger">Loss: @ScoreInfo.Loss</span>
+    <span class="badge badge-light">Draws: @ScoreInfo.Draws</span>
+</p>
+
+@code {
+
+    [CascadingParameter]
+    public ScoreModel ScoreInfo { get; set; }
+
+}

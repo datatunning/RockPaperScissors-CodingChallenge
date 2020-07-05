@@ -1,0 +1,25 @@
+﻿@using Games.RockPaperScissors.Models
+<CascadingValue Value="PlayerInfo.Score">
+    <div class="card bg-dark mb-3 shadow-sm">
+        <div class="card-header">
+            <h3 class="my-0 font-weight-normal">
+                @PlayerInfo.Name
+                <p/>
+                <ScoreBoard/>
+            </h3>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">
+                <small>@PlayerInfo.Category.ToString()</small>
+            </h4>
+            <img id="imgChoice" alt-text="@PlayerInfo.HandPlayed.ToString()" src=@($"images/{@PlayerInfo.HandPlayed}.png") height="200" width="200"/>
+        </div>
+    </div>
+</CascadingValue>
+
+@code {
+
+    [Parameter]
+    public PlayerModel PlayerInfo { get; set; }
+
+}

@@ -1,0 +1,7 @@
+﻿@using Games.RockPaperScissors.Views.Home.Cmponents.Rules
+@model Games.RockPaperScissors.Models.GameType
+@{
+    ViewData["Title"] = "Rules";
+}
+
+@(await Html.RenderComponentAsync<Rules>(RenderMode.ServerPrerendered, new {GameMode = Model}))

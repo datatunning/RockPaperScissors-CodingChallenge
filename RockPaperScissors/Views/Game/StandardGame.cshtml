@@ -1,0 +1,44 @@
+﻿@using Games.RockPaperScissors.Views.Game.Components
+@model Games.RockPaperScissors.Models.GameModel
+@{
+    ViewData["Title"] = "Standard Game";
+    using (Html.BeginForm("PlayStandardGame", "Game"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="cover-container px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <div class="card-deck mb-5 text-center">
+                @(await Html.RenderComponentAsync<Player>(RenderMode.ServerPrerendered, new { PlayerInfo = Model.PlayerOne }))
+                @(await Html.RenderComponentAsync<Player>(RenderMode.ServerPrerendered, new { PlayerInfo = Model.PlayerTwo }))
+            </div>
+
+            @if (!Model.IsHumanVsRobot)
+            {
+                <input type="submit" class="btn btn-lg btn-block btn-primary" value="Fight"/>
+            }
+            else
+            {
+                <p>
+                    <small>Select one of the three images to start playing.</small>
+                </p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <span>
+                        <a type="button" class="btn btn-lg btn-block btn-outline-primary btn-lg" asp-controller="Game" asp-action="PlayStandardGame" asp-route-handChoice="Rock">
+                            <img id="imgChoice" height="70" src="images/Rock.png"/>
+                        </a>
+                    </span>
+                    <span>
+                        <a type="button" class="btn btn-lg btn-block btn-outline-primary btn-lg" asp-controller="Game" asp-action="PlayStandardGame" asp-route-handChoice="Paper">
+                            <img id="imgChoice" height="70" src="images/Paper.png"/>
+                        </a>
+                    </span>
+                    <span>
+                        <a type="button" class="btn btn-lg btn-block btn-outline-primary btn-lg" asp-controller="Game" asp-action="PlayStandardGame" asp-route-handChoice="Scissors">
+                            <img id="imgChoice" height="70" src="images/Scissors.png"/>
+                        </a>
+                    </span>
+                </div>
+            }
+        </div>
+    }
+}

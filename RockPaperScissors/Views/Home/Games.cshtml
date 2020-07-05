@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Games";
+}
+
+<div class="card-deck mb-5 text-center">
+    <div class="card bg-dark mb-3 shadow-sm">
+        <div class="card-header">
+            <h5 class="my-0 font-weight-normal">Beat the AI</h5>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Human <small class="text-muted">vs</small> Robot</h3>
+            <ul class="list-unstyled mt-3 mb-4">
+                <li>Play against an advanced AI</li>
+                <li>Unlimited match</li>
+                <li>Original rules</li>
+            </ul>
+            <a class="btn btn-lg btn-block btn-primary" asp-controller="Game" asp-action="StandardGame" asp-route-mainPlayer="Human">Play</a>
+        </div>
+    </div>
+    <div class="card bg-dark mb-3 shadow-sm">
+        <div class="card-header">
+            <h5 class="my-0 font-weight-normal">AI battle royal</h5>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Robot <small class="text-muted">vs</small> Robot</h3>
+            <ul class="list-unstyled mt-3 mb-4">
+                <li>Just click Start</li>
+                <li>Sit back and relax</li>
+                <li>Original rules</li>
+            </ul>
+            <a class="btn btn-lg btn-block btn-primary" asp-controller="Game" asp-action="StandardGame" asp-route-mainPlayer="Robot">Start</a>
+        </div>
+    </div>
+    <div class="card bg-dark mb-3 shadow-sm">
+        <div class="card-header">
+            <h5 class="my-0 font-weight-normal">Sheldon's game</h5>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title"><span class="badge badge-pill badge-info">Coming soon !!!</span></h3>
+            <ul class="list-unstyled mt-3 mb-4">
+                <li>New UI</li>
+                <li>Lot's of fun</li>
+                <li>Extended rules</li>
+            </ul>
+            <a class="btn btn-lg btn-block btn-outline-primary" asp-controller="Game" asp-action="SheldonGame">Learn more</a>
+        </div>
+    </div>
+</div>
