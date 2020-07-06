@@ -1,4 +1,4 @@
-name: .NET Core
+name: ASP.Net Core
 
 on:
   push:
@@ -8,25 +8,19 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
         
     steps:
     - uses: actions/checkout@v2
-    
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.x
-    
+        dotnet-version: 3.1.101
     - name: Install dependencies
       run: dotnet restore
-    
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    
     - name: Test
-      run: dotnet test --no-restore --no-build --verbosity minimal
-    
-    - name: Report coverage
+      run: dotnet test --no-restore --verbosity normal
+    - name: Codecov
       uses: codecov/codecov-action@v1.0.10
