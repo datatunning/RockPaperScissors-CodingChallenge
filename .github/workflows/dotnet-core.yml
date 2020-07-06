@@ -22,6 +22,6 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test --collect:"XPlat Code Coverage" --settings $(Build.SourcesDirectory)/coverlet.runsettings --no-restore --no-build --verbosity minimal
     - name: Codecov
       uses: codecov/codecov-action@v1.0.10
