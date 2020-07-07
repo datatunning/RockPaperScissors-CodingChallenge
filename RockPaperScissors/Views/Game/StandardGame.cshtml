@@ -8,8 +8,8 @@
 
         <div class="cover-container px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <div class="card-deck mb-5 text-center">
-                @(await Html.RenderComponentAsync<Player>(RenderMode.ServerPrerendered, new { PlayerInfo = Model.PlayerOne }))
-                @(await Html.RenderComponentAsync<Player>(RenderMode.ServerPrerendered, new { PlayerInfo = Model.PlayerTwo }))
+                @(await Html.RenderComponentAsync<Player>(RenderMode.ServerPrerendered, new {PlayerInfo = Model.PlayerOne}))
+                @(await Html.RenderComponentAsync<Player>(RenderMode.ServerPrerendered, new {PlayerInfo = Model.PlayerTwo}))
             </div>
 
             @if (!Model.IsHumanVsRobot)

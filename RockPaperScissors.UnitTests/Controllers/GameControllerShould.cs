@@ -1,5 +1,5 @@
-﻿// <copyright file="GameControllerShould.cs" company="McLaren Applied Ltd.">
-// Copyright (c) McLaren Applied Ltd.</copyright>
+﻿// <copyright file="GameControllerShould.cs" company="Bruno DUVAL.">
+// Copyright (c) Bruno DUVAL.</copyright>
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -7,6 +7,7 @@ using FluentAssertions;
 using FluentAssertions.AspNetCore.Mvc;
 using Games.RockPaperScissors.Controllers;
 using Games.RockPaperScissors.Models;
+using Games.RockPaperScissors.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
@@ -17,20 +18,22 @@ namespace RockPaperScissors.UnitTests.Controllers
     [ExcludeFromCodeCoverage]
     public class GameControllerShould
     {
-        private readonly ILogger<GameController> _logger;
-
         public GameControllerShould()
         {
             _logger = Substitute.For<ILogger<GameController>>();
+            _gameService = Substitute.For< IGameService > ();
         }
-        
+
+        private readonly ILogger<GameController> _logger;
+        private readonly IGameService _gameService;
+
         [Theory]
         [InlineData(PlayerType.Human)]
         [InlineData(PlayerType.Robot)]
         public void ReturnAViewResultWhenCallingStandardGame(PlayerType playerType)
         {
             // Arrange
-            var gameController = new GameController(_logger);
+            var gameController = new GameController(_logger, _gameService);
 
             // Act
             var actionResult = gameController.StandardGame(playerType);
@@ -43,25 +46,6 @@ namespace RockPaperScissors.UnitTests.Controllers
             model.PlayerOne.Category.Should().Be(playerType);
         }
 
-        [Fact]
-        public void ReturnSheldonRulesViewWhenCallingSheldonGame()
-        {
-            // Arrange
-            var gameController = new GameController(_logger);
-
-            // Act
-            var actionResult = gameController.SheldonGame();
-
-            // Assert
-            actionResult.Should().BeRedirectToActionResult();
-            var view = Assert.IsType<RedirectToActionResult>(actionResult);
-
-            view.ActionName.Should().Be(nameof(HomeController.Rules));
-            view.ControllerName.Should().Be("Home");
-            view.RouteValues.Count.Should().Be(1);
-            view.RouteValues.First().Value.Should().Be(GameType.Sheldon);
-        }
-
         [Theory]
         [InlineData(PlayerType.Human, HandType.Rock)]
         [InlineData(PlayerType.Human, HandType.Paper)]
@@ -72,7 +56,7 @@ namespace RockPaperScissors.UnitTests.Controllers
         public void ReturnStandardGameViewWithUpdatedScoreWhenPlaying(PlayerType playerType, HandType handType)
         {
             // Arrange
-            var gameController = new GameController(_logger);
+            var gameController = new GameController(_logger, _gameService);
 
             // Act
             gameController.StandardGame(playerType);
@@ -95,5 +79,23 @@ namespace RockPaperScissors.UnitTests.Controllers
             }
         }
 
+        [Fact]
+        public void ReturnSheldonRulesViewWhenCallingSheldonGame()
+        {
+            // Arrange
+            var gameController = new GameController(_logger, _gameService);
+
+            // Act
+            var actionResult = gameController.SheldonGame();
+
+            // Assert
+            actionResult.Should().BeRedirectToActionResult();
+            var view = Assert.IsType<RedirectToActionResult>(actionResult);
+
+            view.ActionName.Should().Be(nameof(HomeController.Rules));
+            view.ControllerName.Should().Be("Home");
+            view.RouteValues.Count.Should().Be(1);
+            view.RouteValues.First().Value.Should().Be(GameType.Sheldon);
+        }
     }
 }
