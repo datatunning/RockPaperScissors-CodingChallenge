@@ -20,17 +20,22 @@ jobs:
       run: dotnet restore
     
     - name: Build
+      if: ${{ success() }}
       run: dotnet build --configuration Release --no-restore --verbosity normal
 
     - name: Test
+      if: ${{ success() }}
       run: dotnet test --configuration Release --no-restore --no-build --verbosity normal  --collect:'XPlat Code Coverage' --settings coverlet.runsettings
     - name: Report Coverage
+      if: ${{ success() }}
       uses: codecov/codecov-action@v1.0.10
    
     - name: Publish
+      if: ${{ success() }}
       run: dotnet publish --configuration Release --no-restore --no-build --verbosity normal -p:PublishProfile=Properties\PublishProfiles\win-64.pubxml
     - name: Archive Artifacts
-      uses: actions/upload-artifact@v1
+      if: ${{ success() }}
+      uses: actions/upload-artifact@v2
       with:
         name: dist
-        path: ..\publish\**\*
+        path: ../publish
