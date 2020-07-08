@@ -32,10 +32,10 @@ jobs:
    
     - name: Publish
       if: ${{ success() }}
-      run: dotnet publish --configuration Release --no-restore --no-build --verbosity normal -p:PublishProfile=RockPaperScissors\Properties\PublishProfiles\win-64.pubxml
+      run: dotnet publish --configuration Release --no-restore --no-build --verbosity normal
     - name: Archive Artifacts
       if: ${{ success() }}
       uses: actions/upload-artifact@v2
       with:
         name: dist
-        path: RockPaperScissors\bin\Release\netcoreapp3.1\publish
+        path: **/bin/Release/netcoreapp3.1/publish
