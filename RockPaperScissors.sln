@@ -5,7 +5,18 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScissors", "RockPaperScissors\RockPaperScissors.csproj", "{1A7703FD-D184-43E2-9E75-8A25B972CA96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissors.UnitTests", "RockPaperScissors.UnitTests\RockPaperScissors.UnitTests.csproj", "{BCF6A748-2AC4-46C1-90A4-A3F440C8DBE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScissors.UnitTests", "RockPaperScissors.UnitTests\RockPaperScissors.UnitTests.csproj", "{BCF6A748-2AC4-46C1-90A4-A3F440C8DBE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScissors.IntegrationTests", "RockPaperScissors.IntegrationTests\RockPaperScissors.IntegrationTests.csproj", "{A9E8920F-30B2-467D-A81E-B35A8FAA0452}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{E6D089F5-704E-4E69-BD61-5F50CBFC1CD4}"
+	ProjectSection(SolutionItems) = preProject
+		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
+		.github\workflows\continuous-integration-workflow.yml = .github\workflows\continuous-integration-workflow.yml
+		coverlet.runsettings = coverlet.runsettings
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +32,10 @@ Global
 		{BCF6A748-2AC4-46C1-90A4-A3F440C8DBE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCF6A748-2AC4-46C1-90A4-A3F440C8DBE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCF6A748-2AC4-46C1-90A4-A3F440C8DBE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9E8920F-30B2-467D-A81E-B35A8FAA0452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E8920F-30B2-467D-A81E-B35A8FAA0452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E8920F-30B2-467D-A81E-B35A8FAA0452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E8920F-30B2-467D-A81E-B35A8FAA0452}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

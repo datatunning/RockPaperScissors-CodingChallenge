@@ -1,4 +1,4 @@
-# RockPaperScissors ![ASP.Net Core](https://github.com/datatunning/RockPaperScissors/workflows/ASP.Net%20Core/badge.svg)
+# RockPaperScissors ![CI](https://github.com/datatunning/RockPaperScissors/workflows/Continuous-Integration/badge.svg) [![Coverage](https://codecov.io/gh/datatunning/RockPaperScissors/branch/master/graph/badge.svg)](https://codecov.io/gh/datatunning/RockPaperScissors)
 This is a simple implementation of the Rock/Paper/Scissors game using ASP.Net Core 3.1 MVC/Razor/Bootstrap.
 
 ### Index

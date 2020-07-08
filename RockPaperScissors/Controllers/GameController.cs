@@ -1,8 +1,9 @@
-﻿// <copyright file="GameController.cs" company="McLaren Applied Ltd.">
-// Copyright (c) McLaren Applied Ltd.</copyright>
+﻿// <copyright file="GameController.cs" company="Bruno DUVAL.">
+// Copyright (c) Bruno DUVAL.</copyright>
 
 using Games.RockPaperScissors.Helpers;
 using Games.RockPaperScissors.Models;
+using Games.RockPaperScissors.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -16,18 +17,21 @@ namespace Games.RockPaperScissors.Controllers
     {
         private static GameModel _gameMode; // NOTE: This will normally be in a session/cookie/database
         private readonly ILogger<GameController> _logger;
+        private readonly IGameService _gameService;
 
         /// <summary>Initializes a new instance of the <see cref="GameController" /> class.</summary>
         /// <param name="logger">The logger.</param>
-        public GameController(ILogger<GameController> logger)
+        /// <param name="gameService"></param>
+        public GameController(ILogger<GameController> logger, IGameService gameService)
         {
             _logger = logger;
+            _gameService = gameService;
         }
 
         /// <summary>Standards the game.</summary>
         /// <param name="mainPlayer">The main player type.</param>
         /// <returns>a <see cref="IActionResult" /></returns>
-        public IActionResult StandardGame(PlayerType mainPlayer)
+        public IActionResult StandardGame(PlayerType mainPlayer = PlayerType.Robot)
         {
             _logger.LogInformation($"Starting StandardGame");
 
@@ -51,37 +55,9 @@ namespace Games.RockPaperScissors.Controllers
                 _gameMode.PlayerOne.HandPlayed = (HandType) handChoice;
             _gameMode.PlayerTwo.HandPlayed = EnumHelpers.RandomizeSelection<HandType>();
 
-            ProcessHandsChoices(_gameMode.PlayerOne, _gameMode.PlayerTwo);
+            _gameService.ProcessHandsChoices(_gameMode.PlayerOne, _gameMode.PlayerTwo);
 
             return View("StandardGame", _gameMode);
-        }
-
-        /// <summary>Processes the hands choices.</summary>
-        /// <param name="playerOne">The player one's Hand choice.</param>
-        /// <param name="playerTwo">The player two's Hand choice.</param>
-        private static void ProcessHandsChoices(PlayerModel playerOne, PlayerModel playerTwo)
-        {
-            if (playerOne.HandPlayed == playerTwo.HandPlayed) // two choices the same
-            {
-                playerOne.Score.Draws++;
-                playerTwo.Score.Draws++;
-            }
-            else if ( // options for what will produce a win
-                (playerOne.HandPlayed == HandType.Rock && playerTwo.HandPlayed == HandType.Scissors)
-                ||
-                (playerOne.HandPlayed == HandType.Paper && playerTwo.HandPlayed == HandType.Rock)
-                ||
-                (playerOne.HandPlayed == HandType.Scissors && playerTwo.HandPlayed == HandType.Paper)
-            )
-            {
-                playerOne.Score.Wins++;
-                playerTwo.Score.Loss++;
-            }
-            else // everything else must be a draw
-            {
-                playerOne.Score.Loss++;
-                playerTwo.Score.Wins++;
-            }
         }
 
         /// <summary>Redirect to the Rules view of Sheldon's Game.</summary>

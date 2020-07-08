@@ -4,10 +4,25 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Games.RockPaperScissors</RootNamespace>
     <AssemblyName>Games.RockPaperScissors</AssemblyName>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/datatunning/RockPaperScissors</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/datatunning/RockPaperScissors</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>ASP.Net Bootstrap UnitTests IntegrationTest</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
     <PackageReference Include="WestWind.AspnetCore.LiveReload" Version="0.2.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 </Project>

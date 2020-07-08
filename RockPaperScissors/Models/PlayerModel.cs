@@ -1,5 +1,5 @@
-﻿// <copyright file="PlayerModel.cs" company="McLaren Applied Ltd.">
-// Copyright (c) McLaren Applied Ltd.</copyright>
+﻿// <copyright file="PlayerModel.cs" company="Bruno DUVAL.">
+// Copyright (c) Bruno DUVAL.</copyright>
 
 using Games.RockPaperScissors.Helpers;
 
@@ -8,7 +8,7 @@ namespace Games.RockPaperScissors.Models
     /// <summary>
     ///     The Player model
     /// </summary>
-    public class PlayerModel
+    public class PlayerModel : IPlayerModel
     {
         /// <summary>Initializes a new instance of the <see cref="PlayerModel" /> class.</summary>
         /// <param name="id">The identifier that will be converted to text to generate the Robot's name.</param>

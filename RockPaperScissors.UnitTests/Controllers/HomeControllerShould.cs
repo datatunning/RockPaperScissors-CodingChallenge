@@ -1,5 +1,5 @@
-// <copyright file="HomeControllerShould.cs" company="McLaren Applied Ltd.">
-// Copyright (c) McLaren Applied Ltd.</copyright>
+// <copyright file="HomeControllerShould.cs" company="Bruno DUVAL.">
+// Copyright (c) Bruno DUVAL.</copyright>
 
 using System.Diagnostics.CodeAnalysis;
 using FluentAssertions.AspNetCore.Mvc;

@@ -1,5 +1,5 @@
-﻿// <copyright file="HomeController.cs" company="McLaren Applied Ltd.">
-// Copyright (c) McLaren Applied Ltd.</copyright>
+﻿// <copyright file="HomeController.cs" company="Bruno DUVAL.">
+// Copyright (c) Bruno DUVAL.</copyright>
 
 using System.Diagnostics;
 using Games.RockPaperScissors.Models;

@@ -1,5 +1,5 @@
-﻿// <copyright file="PlayerType.cs" company="McLaren Applied Ltd.">
-// Copyright (c) McLaren Applied Ltd.</copyright>
+﻿// <copyright file="PlayerType.cs" company="Bruno DUVAL.">
+// Copyright (c) Bruno DUVAL.</copyright>
 
 namespace Games.RockPaperScissors.Models
 {

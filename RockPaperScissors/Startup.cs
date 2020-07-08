@@ -1,6 +1,7 @@
-// <copyright file="Startup.cs" company="McLaren Applied Ltd.">
-// Copyright (c) McLaren Applied Ltd.</copyright>
+// <copyright file="Startup.cs" company="Bruno DUVAL.">
+// Copyright (c) Bruno DUVAL.</copyright>
 
+using Games.RockPaperScissors.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -42,9 +43,14 @@ namespace Games.RockPaperScissors
                     // requires using Microsoft.AspNetCore.Http;
                     options.MinimumSameSitePolicy = SameSiteMode.None;
                 });
-            services.AddServerSideBlazor();
+
+            services.AddScoped<IGameService, GameService>();
+
             services.AddControllersWithViews();
+
+            services.AddServerSideBlazor();
             services.AddRazorPages();
+
             services.AddLiveReload();
         }
 
@@ -67,11 +73,15 @@ namespace Games.RockPaperScissors
             }
 
             app.UseHttpsRedirection();
+
             app.UseLiveReload();
+
             app.UseStaticFiles();
+
             app.UseCookiePolicy();
+
             app.UseRouting();
-            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 //endpoints.MapBlazorHub();

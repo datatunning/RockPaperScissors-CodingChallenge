@@ -1,5 +1,5 @@
-﻿// <copyright file="NumberConverter.cs" company="McLaren Applied Ltd.">
-// Copyright (c) McLaren Applied Ltd.</copyright>
+﻿// <copyright file="NumberConverter.cs" company="Bruno DUVAL.">
+// Copyright (c) Bruno DUVAL.</copyright>
 
 using System;
 
