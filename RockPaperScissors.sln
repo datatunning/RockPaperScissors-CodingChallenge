@@ -12,8 +12,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{E6D089F5-704E-4E69-BD61-5F50CBFC1CD4}"
 	ProjectSection(SolutionItems) = preProject
 		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
+		.github\workflows\continuous-integration-workflow.yml = .github\workflows\continuous-integration-workflow.yml
 		coverlet.runsettings = coverlet.runsettings
-		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
