@@ -1,6 +1,9 @@
 name: Continuous-Integration
 
-on: [push, pull_request]
+on:
+  pull_request:
+  push:
+    branches: master
 
 jobs:
   Build-Test-Report:
@@ -30,4 +33,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: dist
-        path: publish\**\*
+        path: ..\publish\**\*
