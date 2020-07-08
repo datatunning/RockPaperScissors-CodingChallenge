@@ -1,13 +1,6 @@
 name: Continuous-Integration
 
-on: 
-  push:
-    branches:
-     - '**\*'
-     - '!master'
-  pull_request:
-    branches:
-      - '**\*'
+on: [push, pull_request]
 
 jobs:
   Build-Test-Report:
