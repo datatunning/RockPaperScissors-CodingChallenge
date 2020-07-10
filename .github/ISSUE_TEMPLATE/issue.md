@@ -1,15 +1,15 @@
 ---
-name: Doc issue
+name: issue
 about: Create an issue to help us improve
-title: 
-labels: 
-assignees: 
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
 # Before you open an issue
 
-If the issue is with an ASP.NET Core document, open the issue with the **Content feedback** button at the bottom of that document page.
+If the issue is with an ASP.NET Core application, 
 
 If the issue is:
 
