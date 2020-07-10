@@ -3,13 +3,11 @@ name: Continuous-Integration
 on:
   push:
     tags:
-      - v*
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   Build-Test-Report:
     runs-on: ubuntu-latest
-
-    if: github.actor == github.event.repository.owner.login
 
     steps:
     - uses: actions/checkout@v2
