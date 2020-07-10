@@ -12,6 +12,9 @@
     <PackageTags>ASP.Net Bootstrap UnitTests IntegrationTest</PackageTags>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <SignAssembly>true</SignAssembly>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <AssemblyOriginatorKeyFile>RockPaperScissors.snk</AssemblyOriginatorKeyFile>
+    <UserSecretsId>7e23d1e2-071c-4bd9-805e-e2767df3fc83</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
