@@ -1,14 +1,15 @@
 name: Continuous-Integration
 
 on:
-  pull_request:
   push:
-    branches: master
-
+    tags:
+       - '**'
 jobs:
   Build-Test-Report:
     runs-on: ubuntu-latest
-        
+
+    if: github.actor == github.event.repository.owner.login
+
     steps:
     - uses: actions/checkout@v2
     
@@ -29,3 +30,14 @@ jobs:
     - name: Report Coverage
       if: ${{ success() }}
       uses: codecov/codecov-action@v1.0.10
+   
+    - name: Publish
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v1
+      with:
+        app-name: 'vintagegamestudio'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_4d2e69bf38e04c4caeb669090bf0e893 }}
+        package: ${{env.DOTNET_ROOT}}/myapp 
